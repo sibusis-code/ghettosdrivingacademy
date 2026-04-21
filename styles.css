@@ -96,14 +96,41 @@ body {
 
 .top-nav {
   display: inline-flex;
+  flex-wrap: wrap;
   gap: 1.1rem;
 }
 
 .top-nav a {
+  position: relative;
   color: var(--ink);
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
+  padding: 0.2rem 0.1rem;
+  transition: color 0.2s ease;
+}
+
+.top-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.18rem;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #08b1d3, #007c98);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.top-nav a:hover,
+.top-nav a:focus-visible {
+  color: #04556a;
+}
+
+.top-nav a:hover::after,
+.top-nav a:focus-visible::after {
+  transform: scaleX(1);
 }
 
 main {
@@ -470,6 +497,11 @@ li + li {
     order: 3;
     width: 100%;
     justify-content: center;
+    gap: 0.9rem;
+  }
+
+  .top-nav a {
+    padding: 0.45rem 0.2rem;
   }
 
   .hero,
@@ -494,6 +526,14 @@ li + li {
 
   .brand-text {
     font-size: 0.88rem;
+  }
+
+  .top-nav {
+    gap: 0.7rem;
+  }
+
+  .top-nav a {
+    font-size: 0.9rem;
   }
 
   .hero-copy h1 {
